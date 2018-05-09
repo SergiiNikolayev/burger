@@ -6,8 +6,8 @@ import Burger from '../../components/Burger/Burger';
 class BurgerBuilder extends Component {
     state = {
         ingredients: {
-            salad: 3,
-            cheese: 4,
+            salad: 0,
+            cheese: 0,
             meat: 0,
             bacon: 0
         }
