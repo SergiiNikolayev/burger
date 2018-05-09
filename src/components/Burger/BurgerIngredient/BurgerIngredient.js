@@ -6,7 +6,7 @@ import '../../../index.css'
 class BurgerIngredient extends Component {
     render() {
         let ingredient = null;
-
+//keys from BuregerBuilder state ( salad, cheese and so on) must be equal to keys we check here, they should be same casing and same name
         switch (this.props.type) {
             case ('bread-bottom'):
                 ingredient = <div className="BreadBottom"></div>;
