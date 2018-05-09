@@ -4,7 +4,6 @@ import PropTypes from  'prop-types';
 import '../../../index.css'
 
 class BurgerIngredient extends Component {
-
     render() {
         let ingredient = null;
 
@@ -34,9 +33,9 @@ class BurgerIngredient extends Component {
                 break;
             default:
                 ingredient = null;
-
-                return ingredient;
         }
+
+        return ingredient;
     }
 };
 
