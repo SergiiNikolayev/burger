@@ -37,15 +37,40 @@ class BurgerBuilder extends Component {
     }
 
     removeIngredientHandler = ( type ) => {
-
+        const oldCount = this.state.ingredients[type];
+        if (oldCount <= 0){
+            //if there is nothing
+            return;
+        }
+        const updatedCount = oldCount - 1;
+        const updatedIngredients = {
+            ...this.state.ingredients
+        };
+        updatedIngredients[type] = updatedCount;
+        const priceDeduction = INGREDIENT_PRICES[type];
+        const oldPrice = this.state.totalPrice;
+        const newPrice = oldPrice - priceDeduction;
+        this.setState({totalPrice: newPrice, ingredients: updatedIngredients})
     }
 
     render () {
+        const disabledInfo = {
+            ...this.state.ingredients
+        };
+        for (let key in disabledInfo){
+            disabledInfo[key] = disabledInfo[key] <= 0 //this line convert numbers to booleans,  disabledInfo[key] <= 0  will check if value of salad and others is 0 or less then 0 and return true or false
+            /** in this restructured object (disabledInfo) we will got:
+             *      {salad: true, meat: false, ...}
+             * */
+        }
+
         return (
             <Aux>
                 <Burger ingredients={this.state.ingredients}/>
                 <BuildControls
                     ingredientAdded = {this.addIngredientHandler}
+                    ingredientRemoved = {this.removeIngredientHandler}
+                    disabled = {disabledInfo}
                 />
             </Aux>
         );
