@@ -19,8 +19,22 @@ class BurgerBuilder extends Component {
             meat: 0,
             bacon: 0
         },
-        totalPrice: 4
+        totalPrice: 4,
+        purchasable: false //if we have at least 1 ingredient it set to true
     };
+
+    updatePurchaseState (ingredients) {
+        //here we converting Object sum to Array of keys, like [salad, cheese, ...] then use this key for accesing ingredients Array and set right values to our new Array after we use .reduce
+        const sum  = Object.keys(ingredients)
+            .map( someKey => {
+                return ingredients[someKey]
+            })
+            .reduce((sum, el) => {
+                return sum + el;
+            }, 0);
+        this.setState( {purchasable: sum > 0 } ); // sum > 0  is true or false
+        console.log("BurgerBuilder sum: " + sum);
+    }
 
     addIngredientHandler = ( type ) => {
         //to add ingredient first of all we need to know what old ingr-t is
@@ -33,7 +47,8 @@ class BurgerBuilder extends Component {
         const priceAddition = INGREDIENT_PRICES[type];
         const oldPrice = this.state.totalPrice;
         const newPrice = oldPrice + priceAddition;
-        this.setState({totalPrice: newPrice, ingredients: updatedIngredients})
+        this.setState({totalPrice: newPrice, ingredients: updatedIngredients});
+        this.updatePurchaseState(updatedIngredients);
     }
 
     removeIngredientHandler = ( type ) => {
@@ -51,6 +66,7 @@ class BurgerBuilder extends Component {
         const oldPrice = this.state.totalPrice;
         const newPrice = oldPrice - priceDeduction;
         this.setState({totalPrice: newPrice, ingredients: updatedIngredients})
+        this.updatePurchaseState(updatedIngredients);
     }
 
     render () {
@@ -71,6 +87,7 @@ class BurgerBuilder extends Component {
                     ingredientAdded = {this.addIngredientHandler}
                     ingredientRemoved = {this.removeIngredientHandler}
                     disabled = {disabledInfo}
+                    purchasable = {this.state.purchasable}
                     price = {this.state.totalPrice}
                 />
             </Aux>
