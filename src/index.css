@@ -343,3 +343,11 @@ p strong {
 .Toolbar nav {
     height: 100%;
 }
+
+.Logo {
+    height: 45px;
+    background-color: #ffffffdb;
+    padding: 6px;
+    border-radius: 10px;
+    box-sizing: border-box;
+}

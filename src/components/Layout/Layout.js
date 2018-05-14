@@ -8,7 +8,9 @@ import '../../index.css'
 
 const layout = (props) => (
     <Aux>
-        <Toolbar/>
+        <Toolbar>
+
+        </Toolbar>
         <main className="Content">
             {props.children}
         </main>
