@@ -8,8 +8,8 @@ import SideDrawer from '../../components/UI/Navigation/SideDrawer/SideDrawer'
 
 const layout = (props) => (
     <Aux>
-        <Toolbar/>
-        <SideDrawer/>
+        <Toolbar />
+        <SideDrawer />
         <main className="Content">
             {props.children}
         </main>
