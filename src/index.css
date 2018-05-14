@@ -3,8 +3,8 @@ body {
   padding: 0;
   font-family: "Open Sans", sans-serif;
 }
-.content{
-  margin-top:16px;
+.Content{
+  margin-top: 72px;
 }
 
 .BreadBottom {
@@ -323,4 +323,23 @@ p strong {
     background-color: #c5f1c4d4;
     padding: 5px;
     border-radius: 5px;
+}
+
+.Toolbar {
+    height: 56px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #97510c;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+    z-index: 90; /* should be less than Backdrop */
+}
+
+.Toolbar nav {
+    height: 100%;
 }
