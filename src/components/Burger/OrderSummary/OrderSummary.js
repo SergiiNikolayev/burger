@@ -4,14 +4,6 @@ import Aux from '../../../hoc/Auxx';
 import Button from '../../UI/Button/Button';
 
 const orderSummary = (props) => {
-    /*const showPrice = Object.keys(props.totalPrice)
-        .map(priceKeys => {
-            {console.log()}
-            return (
-                <p> {props.totalPrice[priceKeys]} </p>
-            )
-        });*/
-
     const ingredientSummary = Object.keys(props.ingredients)
         .map(keyz => {
             //just keyz in key will work fine
