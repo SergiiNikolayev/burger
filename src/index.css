@@ -1,10 +1,10 @@
 body {
-  margin: 0;
-  padding: 0;
-  font-family: "Open Sans", sans-serif;
+    margin: 0;
+    padding: 0;
+    font-family: "Open Sans", sans-serif;
 }
 .Content{
-  margin-top: 72px;
+    margin-top: 72px;
 }
 
 .BreadBottom {
@@ -353,47 +353,99 @@ p strong {
     height: 100%;
 }
 
-.Logo {
-    height: 45px;
+.SideDrawer .Logo{
+    height: 60px;
     background-color: #ffffffdb;
     padding: 6px;
     border-radius: 10px;
     box-sizing: border-box;
+    margin-bottom: 32px;
 }
 
-.NavigationItems{
-    margin: 0;
-    padding: 0;
+.SideDrawer nav .NavigationItem {
+    margin: 10px 0;
     list-style: none;
-    display: flex;
-    align-items: center;
-    height: 100%;
+    display: block;
+    width: 100%;
 }
 
-.NavigationItem {
-    margin: 0;
-    box-sizing: border-box;
-    display: flex;
-    height: 100%;
-    align-items: center;
-}
-
-.NavigationItem a {
-    color: white;
+.SideDrawer nav .NavigationItem a {
+    color: #8f5c2c;
     text-decoration: none;
-    height: 100%;
-    padding: 16px 10px;
-    border-bottom: 4px solid transparent;
+    width: 100%;
     box-sizing: border-box;
     display: block;
 }
 
-.NavigationItem a:hover,
-.NavigationItem a:active,
-.NavigationItem a.active {
-    background-color: #8f5c2c;
-    border-bottom: 4px solid #40A4c8;
-    color: white;
+.SideDrawer nav .NavigationItem a:hover,
+.SideDrawer nav .NavigationItem a:active,
+.SideDrawer nav .NavigationItem a.active {
+    color: #40A4c8;
+    background-color: white;
+}
+
+.SideDrawer nav .NavigationItems{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    height: 100%;
+}
+
+@media (max-width: 500px) {
+    .Logo2, .NavigationItem {
+        display: none;
+    }
+}
+
+
+@media (min-width: 500px){
+    .NavigationItems{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+        flex-flow: row;
+        align-items: center;
+        height: 100%;
+    }
+
+    .NavigationItem {
+        margin: 0;
+        box-sizing: border-box;
+        display: flex;
+        height: 100%;
+        align-items: center;
+    }
+
+    .NavigationItem a {
+        color: white;
+        text-decoration: none;
+        height: 100%;
+        padding: 16px 10px;
+        border-bottom: 4px solid transparent;
+        box-sizing: border-box;
+        display: block;
+    }
+
+    .NavigationItem a:hover,
+    .NavigationItem a:active,
+    .NavigationItem a.active {
+        background-color: #8f5c2c;
+        border-bottom: 4px solid #40A4c8;
+        color: white;
+    }
+
+    .Logo2 {
+        height: 45px;
+        background-color: #ffffffdb;
+        padding: 6px;
+        border-radius: 10px;
+        box-sizing: border-box;
+    }
+
 }
 
 .SideDrawer {
@@ -424,8 +476,9 @@ p strong {
     transform: translateX(-100%);
 }
 
-/*
-.Logo {
-    height: 11%;
-    margin-bottom: 32px;
-}*/
+@media (max-width: 499px) {
+    /*this not added to anywhere*/
+    .DesktopOnly {
+        display: none;
+    }
+}
