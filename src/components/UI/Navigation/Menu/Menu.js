@@ -1,9 +1,13 @@
 import React from 'react';
 
+import '../../../../index.css'
+
 const menu = (props) => {
     return (
-        <div onClick={props.showMenu}>
-            <p>MenU</p>
+        <div className="DrawerToggle" onClick={props.showMenu} >
+            <div></div>
+            <div></div>
+            <div></div>
         </div>
     );
 };
