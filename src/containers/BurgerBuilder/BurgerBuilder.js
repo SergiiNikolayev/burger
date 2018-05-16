@@ -14,6 +14,8 @@ const INGREDIENT_PRICES = {
     bacon: 1.5
 };
 
+const START_PRICE = 4;
+
 class BurgerBuilder extends Component {
     state = {
         ingredients: {
@@ -22,7 +24,7 @@ class BurgerBuilder extends Component {
             meat: 0,
             bacon: 0
         },
-        totalPrice: 4,
+        totalPrice: START_PRICE,
         purchasable: false, //if we have at least 1 ingredient it set to true
         purchasing: false
     };
@@ -86,6 +88,27 @@ class BurgerBuilder extends Component {
         alert("Continue purchase");
     }
 
+
+
+    resetHandler = () => {
+
+        /**
+        In resetHandler first we are making copy of our state ingredients
+         then we initiating 0's to each key (key: 0, key: 0)
+         and then we put our copy of ingredients to the state with setState
+        */
+
+        const oldIngredients = {...this.state.ingredients};
+        for (let key in oldIngredients){
+            oldIngredients[key] = 0;
+        };
+        this.setState({
+            ingredients : oldIngredients,
+            totalPrice: START_PRICE,
+            purchasable: false
+        })
+    }
+
     render () {
         const disabledInfo = {
             ...this.state.ingredients
@@ -115,6 +138,7 @@ class BurgerBuilder extends Component {
                     purchasable = {this.state.purchasable}
                     price = {this.state.totalPrice}
                     ordered = {this.purchaseHandler}
+                    resetAll = {this.resetHandler}
                 />
             </Aux>
         );
