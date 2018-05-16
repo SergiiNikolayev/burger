@@ -543,3 +543,9 @@ p strong {
 .Reset:hover {
     background-color: #500000;
 }
+.Reset:disabled {
+    background-color: #C7C6C6;
+    cursor: not-allowed;
+    color: #888888;
+}
+

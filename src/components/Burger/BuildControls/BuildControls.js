@@ -31,6 +31,7 @@ const buildControls = (props) => (
         >ORDER NOW
         </button>
         <button
+            disabled={!props.purchasable}
             className="Reset"
             onClick={props.resetAll}
         >RESET
