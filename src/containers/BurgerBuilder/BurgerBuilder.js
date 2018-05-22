@@ -118,7 +118,17 @@ class BurgerBuilder extends Component {
             }).catch(error => {
             this.setState({loading: false, purchasing: false})
         });*/
-        this.props.history.push('/checkout');
+
+        /** here we passing our ingredients to checkout.js but first we need to encode them to uri and then in checkout.js encode them back*/
+        const queryParams = [];
+        for (let i in this.state.ingredients){
+            queryParams.push(encodeURIComponent(i) + '=' + encodeURIComponent(this.state.ingredients[i]));
+        }
+        const queryString = queryParams.join('&');
+        this.props.history.push({
+            pathname: '/checkout',
+            search: '?' + queryString /* string of ingredients*/
+        });
     }
 
 
@@ -183,6 +193,7 @@ class BurgerBuilder extends Component {
                         price={this.state.totalPrice}/>
                 </Aux>
             );
+
         }
 
         return (

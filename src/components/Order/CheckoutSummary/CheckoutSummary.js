@@ -5,6 +5,7 @@ import Button from '../../UI/Button/Button';
 import '../../../index.css'
 
 const checkoutSummary = ( props ) => {
+
     return (
         <div className="CheckoutSummary">
             <h1>We hope it tastes well!!</h1>

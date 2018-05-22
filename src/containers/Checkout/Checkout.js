@@ -11,12 +11,24 @@ class Checkout extends Component {
         }
     }
 
+    componentDidMount() {
+        const query = new URLSearchParams(this.props.location.search); //search URL, include question mark and so on
+        const ingredients = {};
+        for (let param of query.entries()){
+            // ['salad' , '1']
+            ingredients[param[0]] = +param[1]
+        }
+        this.setState({ingredients: ingredients});
+
+    }
+
     checkoutCancelHandler = () => {
         this.props.history.goBack();
     }
 
     checkoutContinueHandler = () => {
         this.props.history.replace('/checkout/BURGER-OM-NOM-NOM');
+        console.log(this.props);
     }
 
     render() {
