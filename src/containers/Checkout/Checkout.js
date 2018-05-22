@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import CheckoutSummary from '../../components/Order/CheckoutSummary/CheckoutSummary'
-import PropTypes from 'prop-types';
 
 class Checkout extends Component {
     state = {
@@ -12,10 +11,21 @@ class Checkout extends Component {
         }
     }
 
+    checkoutCancelHandler = () => {
+        this.props.history.goBack();
+    }
+
+    checkoutContinueHandler = () => {
+        this.props.history.replace('/checkout/BURGER-OM-NOM-NOM');
+    }
+
     render() {
         return (
             <div>
-                <CheckoutSummary ingredients={this.state.ingredients} />
+                <CheckoutSummary
+                    checkoutCanceled = {this.checkoutCancelHandler}
+                    checkoutContinued = {this.checkoutContinueHandler}
+                    ingredients={this.state.ingredients} />
             </div>
         );
     }
