@@ -96,6 +96,7 @@ class BurgerBuilder extends Component {
         /**
          For production ready app, we need to calculate our total price on the server to prevent user from manipulating code before sending to sever
          */
+        /*
         this.setState({loading: true});
         const order = {
             ingredients: this.state.ingredients,
@@ -116,7 +117,8 @@ class BurgerBuilder extends Component {
                 this.setState({loading: false, purchasing: false})
             }).catch(error => {
             this.setState({loading: false, purchasing: false})
-        });
+        });*/
+        this.props.history.push('/checkout');
     }
 
 
