@@ -7,11 +7,11 @@ import '../../../index.css'
 class Thanks extends Component {
 
     /** this is redirect */
-    componentDidMount() {
+    componentWillMount() {
         setTimeout(() => {
             console.log('this ran');
-            this.props.history.push('/');
-        }, 5000)
+            this.props.history.push('/orders');
+        }, 2000)
     }
 
     render() {
