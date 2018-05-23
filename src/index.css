@@ -635,3 +635,38 @@ p strong {
     }
 }
 
+
+.ContactData {
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    height: 40%; /* Full height */
+    top: 15%;
+    width: 100%; /* Full width */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: #d6c138; /* Black w/ opacity */
+    margin: 20px auto;
+    padding: 20px;
+    box-shadow: 0 2px 3px #ccc;
+    border: 1px solid #eee;
+    text-align: center;
+    box-sizing: border-box;
+    /*
+    width: 80%;
+    box-sizing: border-box;*/
+}
+
+.Input {
+    display: block;
+    margin: auto;
+}
+
+@media (min-width: 600px) {
+    .ContactData {
+        width: 40%;
+        left: 30%;
+        top: 15%;
+        margin: 20px auto;
+    }
+}
+

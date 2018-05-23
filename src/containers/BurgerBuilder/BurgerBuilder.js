@@ -143,8 +143,8 @@ class BurgerBuilder extends Component {
         const oldIngredients = {...this.state.ingredients};
         for (let key in oldIngredients) {
             oldIngredients[key] = 0;
-        }
-        ;
+        };
+
         this.setState({
             ingredients: oldIngredients,
             totalPrice: START_PRICE,
