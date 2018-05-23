@@ -7,9 +7,9 @@ import '../../index.css'
 const navigationItems = () => {
     return (
         <ul className="NavigationItems">
-            <NavigationItem link="/" active>Burger Builder</NavigationItem>
-            <Link to="/checkout" >Checkout page</Link>
-            <NavigationItem link="/" >Checkout page</NavigationItem>
+            {/* props exact give us class active */}
+            <NavigationItem link="/" exact >Burger Builder</NavigationItem>
+            <NavigationItem link="/orders" >Orders</NavigationItem>
         </ul>
     );
 };
