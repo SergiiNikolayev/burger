@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import { Route, Redirect } from 'react-router'
 
 import '../../../index.css'
 
@@ -9,7 +8,7 @@ class Thanks extends Component {
     /** this is redirect */
     componentWillMount() {
         setTimeout(() => {
-            console.log('this ran');
+            console.log('Redirect to /orders page right now');
             this.props.history.push('/orders');
         }, 2000)
     }
