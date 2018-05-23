@@ -6,22 +6,26 @@ import ContactData from './ContactData/ContactData'
 
 class Checkout extends Component {
     state = {
-        ingredients: {
-            salad: 1,
-            cheese: 1,
-            meat: 1,
-            bacon: 1
-        }
+        ingredients: null,
+        price: 0
     }
 
-    componentDidMount() {
+    componentWillMount() {
         const query = new URLSearchParams(this.props.location.search); //search URL, include question mark and so on
         const ingredients = {};
+        let price = null;
         for (let param of query.entries()){
             // ['salad' , '1']
-            ingredients[param[0]] = +param[1]
+            if (param[0] === 'price'){
+                price = param[1];
+            } else {
+                ingredients[param[0]] = +param[1];
+            }
         }
-        this.setState({ingredients: ingredients});
+        this.setState({
+            ingredients: ingredients,
+            price: price,
+        });
 
     }
 
@@ -41,9 +45,13 @@ class Checkout extends Component {
                     checkoutCanceled = {this.checkoutCancelHandler}
                     checkoutContinued = {this.checkoutContinueHandler}
                     ingredients={this.state.ingredients} />
+
+
+                {/** in this Route we can pass data to our <ContactData/> component via render and props ingredients*/}
                     <Route
                         path={this.props.match.path + '/contact-data'}
-                        component={ContactData} />
+                        render={( props ) => (<ContactData ingrsFromCheckout={this.state.ingredients} price={this.state.price} {...props} /> )} />
+
             </div>
         );
     }
