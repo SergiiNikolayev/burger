@@ -12,17 +12,16 @@ class Orders extends Component {
 
     componentDidMount() {
         axios.get('/orders.json').then(responseFromDB => {
-
+            console.log(responseFromDB.data);
             /*converts our strange database with strange names to data that we need*/
             const fetchOrders = [];
             for (let key in responseFromDB.data){
                 fetchOrders.push({
-                    ...responseFromDB[key],
+                    ...responseFromDB.data[key],
                     id: key
                 });
             }
             this.setState({loading: false, orders: fetchOrders});
-            console.log(this.state.orders);
         }).catch(error => {
             this.setState({loading: false});
         });
@@ -31,8 +30,16 @@ class Orders extends Component {
     render() {
         return (
             <div>
-                <Order />
-                <Order />
+                {this.state.orders.map( order => (
+                    <Order
+                        key={order.id}
+                        buyer={order.customer.name}
+                        ingredients={order.ingredients}
+                        price={+order.price} /* we added + to convert to Number or we can also add in Order.js Number.parseFloat(props.price).toFixed(2) to convert it in number*/
+                        ordered = {order.ordered}
+                        time = {order.orderedTime}
+                    />
+                ))}
             </div>
         );
     }

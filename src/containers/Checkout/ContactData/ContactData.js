@@ -25,10 +25,12 @@ class ContactData extends Component {
         let street = document.getElementById('street');
         let postal = document.getElementById('postal');
         let when = new Date().toISOString().slice(0, 10);
+        let currentTime = new Date().toLocaleTimeString();
 
         this.setState({loading: true});
         const order = {
             ordered: when,
+            orderedTime: currentTime,
             customer: {
                 name: name.value,
                 email: email.value,
